@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+}
+
+.flex-container{
+    display: flex;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    
+}
+
+.flex-container > div{
+  background-color: #71c48f;
+  margin: 10px;
+  padding: 20px;
+  font-size: 30px;
+  height: 200px;
+}
+    
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+    background-color: #71c48f;
+    padding: 30px;
+    text-align: left;
+    font-size: 35px;
+    color: white;
+}
+
+
+/* Style the navigation menu */
+nav {
+    background: #71c48f;
+    padding: 20px;
+    justify-content: center;
+}
+
+nav:before{
+    clear: both;
+    content: "";
+    display: table;
+}
+
+/* Style the list inside the menu */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow:hidden;
+    background-color: #333;
+    
+}
+
+li {
+    float: right;
+}
+    
+li:after{
+    clear: both;
+    content: "";
+    display: table;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+/* Style the content */
+
+
+/* Style the footer */
+footer {
+    background-color: #71c48f;
+    margin-top: 10px;
+    padding-top: 10px;
+    text-align: center;
+    color: white;
+}
+
+
+logo {
+    padding: 30px;
+    float: left;
+}
+logo::after{
+    clear: both;
+    content: "";
+    display: table;
+}
+
+
+    
