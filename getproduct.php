@@ -1,13 +1,15 @@
 <?php 
-echo "<table style='border: solid 1px black;'>";
- echo "<tr><th>ProductName</th><th>ProductCondition</th><th>Email</th></tr>";
+echo "<table class='zui-table'>";
+echo "<thead><tr><th>ProductName</th><th>ProductCondition</th><th>Email</th></tr></thead>";
+
+echo "<tbody>";
 class TableRows extends RecursiveIteratorIterator { 
     function __construct($it) { 
         parent::__construct($it, self::LEAVES_ONLY); 
     }
 
     function current() {
-        return "<td style='width: 150px; border: 1px solid black;'>" . parent::current(). "</td>";
+        return "<td>" . parent::current(). "</td>";
     }
 
     function beginChildren() { 
@@ -17,7 +19,8 @@ class TableRows extends RecursiveIteratorIterator {
     function endChildren() { 
         echo "</tr>" . "\n";
     } 
-} 
+}
+echo "</tbody>";
 
 $servername = "us-cdbr-iron-east-01.cleardb.net";
 $username = "b6145398a15a30";

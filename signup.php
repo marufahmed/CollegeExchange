@@ -12,6 +12,17 @@ $Last_Name = htmlspecialchars($_POST["lastName"]);
 $E_mail = htmlspecialchars($_POST["email"]);
 $Pass_word = htmlspecialchars($_POST["password"]);
 
+//if(empty($First_Name) || empty($Last_Name) || empty($E_mail) || empty($Pass_word)){
+//    header('Location: login.php?signup=empty');
+//}
+//else{
+//    if(!filter_var($E_mail, FILTER_VALIDATE_EMAIL)){
+//        header('Location: login.php?signup=invalidEmail');
+//    }
+//}
+
+
+
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     // set the PDO error mode to exception
@@ -28,7 +39,7 @@ catch(PDOException $e)
     }
 
 $conn = null;
-header('Location: login.html');
+header('Location: login.php');
 ?>
     
 </body>
