@@ -11,7 +11,7 @@
 
 <header>
   <logo>
-    <a href="index.php"><img src="logo.jpg"></a>
+    <a href="index.php"><img src="logo.JPG"></a>
   </logo>
 
     <h2>COLLEGE EXCHANGE</h2>
