@@ -1,13 +1,9 @@
 <?php
+session_start();
     if(isset($_SESSION['username'])){
         
         session_destroy();
-        $_SESSION = array();
-        header('location: login.html');
-    }
-    else{
-        session_destroy();
-        $_SESSION = array();
+        unset($_SESSION['username']);
         header('location: login.html');
     }
 ?>
