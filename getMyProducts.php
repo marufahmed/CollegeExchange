@@ -28,7 +28,7 @@ if(!isset($_SESSION['username']))
       <ul>
         <li><a href="help.php">Help</a></li>
         <li><a href="signout.php">Sign Out</a></li>
-          <li><a href="getMyProducts.php">My Products</a></li>
+          <li><a class="current" href="getMyProducts.php">My Products</a></li>
         <li><a href="enlist.php">Enlist</a></li>
           
       </ul>

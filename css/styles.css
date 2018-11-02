@@ -56,6 +56,10 @@ nav:before{
     display: table;
 }
 
+nav .current{
+	background-color: #111111;
+}
+
 /* Style the list inside the menu */
 ul {
     list-style-type: none;
@@ -88,6 +92,10 @@ li a:hover {
     background-color: #111;
 }
 
+li a:active{
+	background-color: #111111;
+}
+
 /* Style the content */
 
 
@@ -109,7 +117,7 @@ logo {
 }
 
 
-}logo::after{
+logo::after{
     clear: both;
     content: "";
     display: table;
@@ -140,7 +148,7 @@ body {
   padding: 15px 35px 45px;
   margin: 0 auto;
   background-color: #fff;
-  border: 1px solid rgba(0,0,0,0.1);  
+  border: 1px solid rgba(0,0,0,0.1);
 
   .form-signin-heading,
 	.checkbox {
