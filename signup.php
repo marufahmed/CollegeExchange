@@ -18,20 +18,12 @@ $_SESSION['firstName']=$First_Name;
 $_SESSION['lastName']=$Last_Name;
 $_SESSION['email']=$E_mail;
 
-//if(empty($First_Name) || empty($Last_Name) || empty($E_mail) || empty($Pass_word)){
-//    header('Location: login.php?signup=empty');
-//}
-//else{
-//    if(!filter_var($E_mail, FILTER_VALIDATE_EMAIL)){
-//        header('Location: login.php?signup=invalidEmail');
-//    }
-//}
 
 if (!filter_var($E_mail, FILTER_VALIDATE_EMAIL)) {
     $_SESSION['signupError'] = "Invalid email";
     header('location: index.php');
-
 }
+//ADD MORE VALIDATION FILTERS FOR FIRST NAME, LAST NAME AND PASSWORD
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -42,7 +34,7 @@ try {
     // use exec() because no results are returned
     $conn->exec($sql);
 
-    $_SESSION['signupSuccess'] = "You are signed up now!";
+    $_SESSION['signupSuccess'] = "You are signed up now! Please login";
     unset($_SESSION['firstName']);
     unset($_SESSION['lastName']);
     unset($_SESSION['email']);

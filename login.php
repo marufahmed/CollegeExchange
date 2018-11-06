@@ -30,16 +30,16 @@ session_start();
         <input type="text" class="form-control" name="email" placeholder="Email Address" required="" autofocus="" />
         <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-        <div><p>
+        <div>
                 <?php
                 if(isset($_SESSION['loginError']))
                 {
-                    echo $_SESSION['loginError'];
+                    echo '<p class="bad">'. $_SESSION['loginError'] . '</P>';
                     unset($_SESSION['loginError']);
                 }
                 ?>
 
-         </p></div>
+         </div>
     </form>
 
     <form class="form-signup" action="signup.php" method="post">
@@ -51,23 +51,27 @@ session_start();
         <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
         <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password" required=""/>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Signup</button>
-        <div><p>
+        <div>
                 <?php
                 if(isset($_SESSION['signupError']))
                 {
-                    echo $_SESSION['signupError'];
+                    echo '<p class="bad">' . $_SESSION['signupError'] . '</p>';
                     unset($_SESSION['signupError']);
                 }
+                ?>
 
+                <?php
                 if(isset($_SESSION['signupSuccess']))
                 {
-                    echo $_SESSION['signupSuccess'];
+                    echo '<p class="good">'. $_SESSION['signupSuccess'] . '</p>';
                     unset($_SESSION['signupSuccess']);
                 }
 
                 ?>
 
-            </p></div>
+
+
+            </div>
     </form>
 </div>
 <footer>
@@ -102,11 +106,7 @@ if (isset($_POST['email']) && isset($_POST['password'])){
         $results = $stmt->fetch();
         if($stmt->rowCount() == 1 ){
                 $_SESSION['username'] = $_POST["email"];
-
-
-
                 header('location: index.php');
-
             }
             else {
                 $_SESSION['loginError'] = "Invalid Credentials. Please try again";

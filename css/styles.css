@@ -149,10 +149,23 @@ logo::after{
 	text-align: left;
 	text-shadow: 1px 1px 1px #fff;
 }
+
 tr:hover {background-color: lightblue}
 
-/* */
-
+p.bad{
+	background-color: red;
+	font-size: large;
+	font-weight:bold;
+	color: white;
+	padding: 10px;
+}
+p.good{
+	background-color: green;
+	font-size: large;
+	font-weight:bold;
+	color: white;
+	padding: 10px;
+}
 
 body {
 	background: #eee !important;	
