@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,22 +24,50 @@
 </header>
 
 <div class="wrapper">
+
     <form class="form-signin" action="login.php" method="post">
         <h2 class="form-signin-heading">Login Here</h2>
         <input type="text" class="form-control" name="email" placeholder="Email Address" required="" autofocus="" />
         <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+        <div><p>
+                <?php
+                if(isset($_SESSION['loginError']))
+                {
+                    echo $_SESSION['loginError'];
+                    unset($_SESSION['loginError']);
+                }
+                ?>
+
+         </p></div>
     </form>
 
     <form class="form-signup" action="signup.php" method="post">
         <h5 class="form-signin-heading">Don't have account?</h5>
         <h2 class="form-signin-heading">Signup Here</h2>
-        <input type="text" class="form-control" name="firstName" placeholder="First Name" required="" autofocus=""/>
-        <input type="text" class="form-control" name="lastName" placeholder="Last Name" required="" autofocus=""/>
-        <input type="text" class="form-control" name="email" placeholder="Email Address" required="" autofocus=""/>
+        <input type="text" class="form-control" name="firstName" placeholder="First Name" required="" autofocus="" value="<?php if(isset($_SESSION['firstName'])) {echo $_SESSION['firstName'];}?>"/>
+        <input type="text" class="form-control" name="lastName" placeholder="Last Name" required="" autofocus="" value="<?php if(isset($_SESSION['lastName'])) {echo $_SESSION['lastName'];}?>"/>
+        <input type="text" class="form-control" name="email" placeholder="Email Address" required="" autofocus="" value="<?php if(isset($_SESSION['email'])) {echo $_SESSION['email'];}?>"/>
         <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
         <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password" required=""/>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Signup</button>
+        <div><p>
+                <?php
+                if(isset($_SESSION['signupError']))
+                {
+                    echo $_SESSION['signupError'];
+                    unset($_SESSION['signupError']);
+                }
+
+                if(isset($_SESSION['signupSuccess']))
+                {
+                    echo $_SESSION['signupSuccess'];
+                    unset($_SESSION['signupSuccess']);
+                }
+
+                ?>
+
+            </p></div>
     </form>
 </div>
 <footer>
@@ -43,7 +76,6 @@
 </footer>
 
 <?php
-session_start();
 
 if (isset($_POST['email']) && isset($_POST['password'])){
 
@@ -56,6 +88,10 @@ if (isset($_POST['email']) && isset($_POST['password'])){
     $e_mail = htmlspecialchars($_POST["email"]);
     $pass_word = htmlspecialchars($_POST["password"]);
 
+
+
+
+
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -65,12 +101,16 @@ if (isset($_POST['email']) && isset($_POST['password'])){
         $stmt->execute();
         $results = $stmt->fetch();
         if($stmt->rowCount() == 1 ){
-                echo "valid";
                 $_SESSION['username'] = $_POST["email"];
+
+
+
                 header('location: index.php');
+
             }
             else {
-                echo "Didn't match!";
+                $_SESSION['loginError'] = "Invalid Credentials. Please try again";
+                header('location: index.php');
             }
         }
     catch(PDOException $e)
@@ -80,6 +120,8 @@ if (isset($_POST['email']) && isset($_POST['password'])){
 
     $conn = null;
 }
+
+
 ?>
     
 

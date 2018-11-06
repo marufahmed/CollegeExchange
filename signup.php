@@ -1,6 +1,8 @@
 <html>
 <body>
 <?php
+session_start();
+
 $servername = "us-cdbr-iron-east-01.cleardb.net";
 $username = "b6145398a15a30";
 $password = "8be317d7";
@@ -12,6 +14,10 @@ $Last_Name = htmlspecialchars($_POST["lastName"]);
 $E_mail = htmlspecialchars($_POST["email"]);
 $Pass_word = htmlspecialchars($_POST["password"]);
 
+$_SESSION['firstName']=$First_Name;
+$_SESSION['lastName']=$Last_Name;
+$_SESSION['email']=$E_mail;
+
 //if(empty($First_Name) || empty($Last_Name) || empty($E_mail) || empty($Pass_word)){
 //    header('Location: login.php?signup=empty');
 //}
@@ -21,7 +27,11 @@ $Pass_word = htmlspecialchars($_POST["password"]);
 //    }
 //}
 
+if (!filter_var($E_mail, FILTER_VALIDATE_EMAIL)) {
+    $_SESSION['signupError'] = "Invalid email";
+    header('location: index.php');
 
+}
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -31,7 +41,11 @@ try {
     VALUES ('$First_Name', '$Last_Name', '$E_mail', '$Pass_word')";
     // use exec() because no results are returned
     $conn->exec($sql);
-    echo "New record created successfully";
+
+    $_SESSION['signupSuccess'] = "You are signed up now!";
+    unset($_SESSION['firstName']);
+    unset($_SESSION['lastName']);
+    unset($_SESSION['email']);
     }
 catch(PDOException $e)
     {
