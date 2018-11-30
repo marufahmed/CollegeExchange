@@ -10,35 +10,46 @@ if(!isset($_SESSION['username']))
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>College Exchange</title>
-<link rel="stylesheet" href="css/styles.css">
+    <title>College Exchange</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+<script src="js/refreshProducts.js"></script>
+
+
 <body>
 
 
 
 <header>
-  <logo>
-    <a href="index.php"><img src="logo.JPG"></a>
-  </logo>
+    <div class="center">
+        <logo>
+            <a href="index.php"><img src="logo.png"></a>
+        </logo>
 
-    <h2>COLLEGE EXCHANGE</h2>
-    <h5>Account: <?php echo $_SESSION['username'];?></h5>
-  <nav>
-      <ul>
-        <li><a href="help.php">Help</a></li>
-        <li><a href="signout.php">Sign Out</a></li>
-          <li><a class="current" href="getMyProducts.php">My Products</a></li>
-        <li><a href="enlist.php">Enlist</a></li>
-          
-      </ul>
+        <h1 id="title">COLLEGE EXCHANGE</h1>
+        <h5 id="account-title">Account: <?php echo $_SESSION['username'];?></h5>
+
+    </div>
+    <nav>
+        <ul>
+            <li><a href="help.php">Help</a></li>
+            <li><a href="signout.php">Sign Out</a></li>
+            <li><a href="getMyProducts.php">My Products</a></li>
+            <!--<li><a href="enlist.php">Enlist</a></li>-->
+
+        </ul>
     </nav>
-    
-</header>
 
+
+</header>
+<input type="text" id="searchStringMyproducts" onkeyup="myFunction()" placeholder="Search for items">
 <div>
     <?php
-    echo "<table class='zui-table'>";
+    echo "<table class='zui-table' id='myProducts'> ";
     echo "<thead><tr><th>ProductName</th><th>ProductCondition</th></tr></thead>";
     echo "<tbody>";
     class TableRows extends RecursiveIteratorIterator {
@@ -70,7 +81,7 @@ if(!isset($_SESSION['username']))
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $stmt = $conn->prepare("select Products.ProductName, Products.ProductCondition from Products where Products.Email = '$user'");
+        $stmt = $conn->prepare("select Products.ProductName, Products.ProductCondition from Products where Products.Email = '$user' ORDER BY ProductName DESC");
         $stmt->execute();
 
         // set the resulting array to associative
@@ -89,5 +100,26 @@ if(!isset($_SESSION['username']))
     echo "</table>"
     ?>
 </div>
+
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchString");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myProducts");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
 
 <?php include "footer.php" ?>

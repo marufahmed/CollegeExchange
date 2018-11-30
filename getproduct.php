@@ -1,5 +1,5 @@
 <?php 
-echo "<table class='zui-table'>";
+echo "<table class='zui-table' id='products'>";
 echo "<thead><tr><th>ProductName</th><th>ProductCondition</th><th>Email</th></tr></thead>";
 
 echo "<tbody>";
@@ -30,7 +30,7 @@ $dbname = "heroku_823f7648ae34667";
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("select Products.ProductName, Products.ProductCondition, Products.Email from Products");
+    $stmt = $conn->prepare("select Products.ProductName, Products.ProductCondition, Products.Email from Products ORDER BY Products.ProductID DESC");
     $stmt->execute();
 
     // set the resulting array to associative

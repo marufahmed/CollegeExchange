@@ -9,17 +9,21 @@ session_start();
 <head>
     <title>College Exchange</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
 </head>
 <body>
 
 
-<header>
+<header class="header-login">
+    <div class="center">
     <logo>
-        <a href="index.php"><img src="logo.JPG"></a>
+        <a href="index.php"><img src="logo.png"></a>
     </logo>
 
-    <h2>COLLEGE EXCHANGE</h2>
-
+    <h1 id="title">COLLEGE EXCHANGE</h1>
+    </div>
     &nbsp;
 </header>
 

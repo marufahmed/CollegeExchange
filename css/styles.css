@@ -1,6 +1,19 @@
 * {
     box-sizing: border-box;
-	font-family: Roboto, SansSerif;
+	font-family: 'Kanit', sans-serif;
+}
+
+h1
+{
+	font-family: 'Monoton', cursive;
+	font-size: 3.8rem;
+}
+
+
+#title
+{
+	margin-bottom: 0px !important;
+	padding-top: 30px;
 }
 
 .flex-container{
@@ -32,21 +45,37 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 	position: relative;
 	height: 100%;
+
 }
 
 /* Style the header */
 header {
-    background-color: #71c48f;
+    background-color: #2979ff;
     padding: 30px;
+
     text-align: left;
     font-size: 35px;
     color: white;
 }
+.header-login {
+	background-color: #2979ff;
+	padding-top: 30px;
+	padding-right: 30px;
+	padding-bottom: 120px;
+	padding-left: 30px;
 
+	text-align: left;
+	font-size: 35px;
+	color: white;
+}
+
+.center {
+	margin: auto;
+	width: 60%;
+}
 
 /* Style the navigation menu */
 nav {
-    background: #71c48f;
     padding: 20px;
     justify-content: center;
 }
@@ -102,7 +131,7 @@ li a:active{
 
 /* Style the footer */
 footer {
-    background-color: #71c48f;
+    background-color: #2979ff;
     margin-top: 10px;
     padding-top: 10px;
     text-align: center;
@@ -184,7 +213,18 @@ body {
   border: 1px solid rgba(0,0,0,0.1);
 }
 
-.form-signin-heading,
+#enlist-btn
+{
+	height: 50px;
+	width: 100%;
+	font-size: 16px;
+}
+
+#account-title
+{
+	margin-top: 0px !important;
+}
+
 .checkbox {
 	margin-bottom: 30px;
 }
@@ -197,20 +237,27 @@ body {
 	position: relative;
 	font-size: 16px;
 	height: auto;
+	width: 100%;
 	padding: 10px;
+	margin-bottom: 10px;
 }
 
-input[type="text"] {
-	margin-bottom: -1px;
-	border-bottom-left-radius: 0;
-	border-bottom-right-radius: 0;
+.selector {
+	position: relative;
+	font-size: 16px;
+	height: auto;
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 0px;
 }
 
-input[type="password"] {
-	margin-bottom: 20px;
-	border-top-left-radius: 0;
-	border-top-right-radius: 0;
-}
+
+#condition
+ {
+	font-size: 16px;
+	height: 46px;
+	padding-right: 24px;
+ }
 
 .form-signup {
 	max-width: 380px;
@@ -219,72 +266,43 @@ input[type="password"] {
 	background-color: #fff;
 	border: 1px solid rgba(0, 0, 0, 0.1);
 }
-  .form-signin-heading,
-	.checkbox {
-	  margin-bottom: 30px;
-	}
 
-	.checkbox {
-	  font-weight: normal;
-	}
 
-	.form-control {
-	  position: relative;
-	  font-size: 16px;
-	  height: auto;
-	  padding: 10px;
-	}
 
-	input[type="text"] {
-	  margin-bottom: -1px;
-	  border-bottom-left-radius: 0;
-	  border-bottom-right-radius: 0;
-	}
+.form-signin-heading
+{
+	text-align: center;
+	margin-bottom: 30px;
+}
 
-	input[type="password"] {
-	  margin-bottom: 20px;
-	  border-top-left-radius: 0;
-	  border-top-right-radius: 0;
-	}
 
 
 .form-enlist {
-  max-width: 380px;
-  padding: 15px 35px 45px;
+  max-width: 400px;
+  padding: 30px;
   margin: 0 auto;
   background-color: #fff;
   border: 1px solid rgba(0,0,0,0.1);  
 
 }
 
-
-.form-signin-heading,
-.checkbox {
-	margin-bottom: 30px;
-}
-
-.checkbox {
-	font-weight: normal;
-}
-
-.form-control {
-	position: relative;
+#searchString {
+	width: 100%;
 	font-size: 16px;
-	height: auto;
-	padding: 10px;
+	padding: 12px 0px 12px 5px;
+	border: 1px solid #ddd;
+	margin-bottom: 12px;
 }
 
-input[type="text"] {
-	margin-bottom: -1px;
-	border-bottom-left-radius: 0;
-	border-bottom-right-radius: 0;
+#searchStringMyproducts {
+	width: 100%;
+	font-size: 16px;
+	padding: 12px 0px 12px 5px;
+	border: 1px solid #ddd;
+	margin-bottom: 10px;
+	margin-top: 10px;
 }
 
-input[type="password"] {
-	margin-bottom: 20px;
-	border-top-left-radius: 0;
-	border-top-right-radius: 0;
-}
 
 
 
