@@ -46,7 +46,7 @@ if(!isset($_SESSION['username']))
 
 
 </header>
-<input type="text" id="searchStringMyproducts" onkeyup="myFunction()" placeholder="Search for items">
+<input type="text" id="searchStringMyproducts" onkeyup="searchMyproducts()" placeholder="Search for items">
 <div>
     <?php
     echo "<table class='zui-table' id='myProducts'> ";
@@ -101,25 +101,6 @@ if(!isset($_SESSION['username']))
     ?>
 </div>
 
-<script>
-    function myFunction() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("searchString");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("myProducts");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
-</script>
+
 
 <?php include "footer.php" ?>

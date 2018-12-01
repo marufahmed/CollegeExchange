@@ -62,29 +62,10 @@ else {
         <hr>
         <button class="btn btn-lg btn-primary btn-block" id="enlist-btn" type="submit">Enlist</button>
         <hr>
-        <input type="text" id="searchString" onkeyup="myFunction()" placeholder="Search for items">
+        <input type="text" id="searchString" onkeyup="searchHome()" placeholder="Search for items">
     </form>
 </div>
-<script>
-    function myFunction() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("searchString");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("products");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
-</script>
+
 
 <div id="product-list">
     <?php include 'getproduct.php';?>
