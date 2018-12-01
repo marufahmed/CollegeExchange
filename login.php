@@ -30,11 +30,12 @@ session_start();
 
 <div class="wrapper">
 
+    <div class="signin-div">
     <form class="animated slideInDown form-signin" action="login.php" method="post">
         <h2 class="form-signin-heading">Login Here</h2>
         <input type="text" class="form-control" name="email" placeholder="Email Address" required="" autofocus="" />
         <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+        <button class="btn btn-lg btn-primary btn-block login-btn" type="submit">Login</button>
         <div>
                 <?php
                 if(isset($_SESSION['loginError']))
@@ -46,7 +47,9 @@ session_start();
 
          </div>
     </form>
+    </div>
 
+    <div class="signup-div">
     <form class="animated slideInDown form-signup" action="signup.php" method="post">
         <h5 class="form-signin-heading">Don't have account?</h5>
         <h2 class="form-signin-heading">Signup Here</h2>
@@ -55,7 +58,7 @@ session_start();
         <input type="text" class="form-control" name="email" placeholder="Email Address" required="" autofocus="" value="<?php if(isset($_SESSION['email'])) {echo $_SESSION['email'];}?>"/>
         <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
         <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password" required=""/>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Signup</button>
+        <button class="btn btn-lg btn-primary btn-block login-btn" type="submit">Signup</button>
         <div>
                 <?php
                 if(isset($_SESSION['signupError']))
@@ -78,6 +81,7 @@ session_start();
 
             </div>
     </form>
+    </div>
 </div>
 <footer>
     <h2>About college exchange</h2>
