@@ -37,7 +37,7 @@ else {
     <h5 id="account-title">Account: <?php echo $_SESSION['username'];?></h5>
 
     </div>
-  <nav class = "animated slideInRight">
+  <nav class = "animated slideInDown">
       <ul>
         <li><a href="help.php">Help</a></li>
         <li><a href="signout.php">Sign Out</a></li>
