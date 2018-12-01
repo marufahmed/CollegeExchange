@@ -14,6 +14,7 @@ else {
 <head>
 <title>College Exchange</title>
 <link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
 </head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -27,7 +28,7 @@ else {
 
 
 <header>
-    <div class="center">
+    <div class="animated slideInDown center">
   <logo>
     <a href="index.php"><img src="logo.png"></a>
   </logo>
@@ -36,7 +37,7 @@ else {
     <h5 id="account-title">Account: <?php echo $_SESSION['username'];?></h5>
 
     </div>
-  <nav>
+  <nav class = "animated slideInRight">
       <ul>
         <li><a href="help.php">Help</a></li>
         <li><a href="signout.php">Sign Out</a></li>
@@ -49,10 +50,10 @@ else {
     
 </header>
 
-<div class="wrapper" id="div-enlist">
+<div class="animated slideInDown wrapper" id="div-enlist">
     <form class="form-enlist" id="enlist-form" action="enlistProduct.php" method="post">
-        <p class="form-signin-heading">Please enter the description of your product here:</p>
-        <input type="text" class="form-control" name="productName" placeholder="Name of your product" required="" autofocus=""/>
+        <p class="animated fadeInDown form-signin-heading">Please enter the description of your product here:</p>
+        <input type="text" class="form-control" name="productName" placeholder="Name of your product" required="" />
         <select class="selector" id="condition">
             <option value="Like New">Like New</option>
             <option value="Excellent">Excellent</option>

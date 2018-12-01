@@ -9,6 +9,7 @@ session_start();
 <head>
     <title>College Exchange</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
@@ -16,7 +17,7 @@ session_start();
 <body>
 
 
-<header class="header-login">
+<header class="animated slideInDown header-login">
     <div class="center">
     <logo>
         <a href="index.php"><img src="logo.png"></a>
@@ -29,7 +30,7 @@ session_start();
 
 <div class="wrapper">
 
-    <form class="form-signin" action="login.php" method="post">
+    <form class="animated slideInDown form-signin" action="login.php" method="post">
         <h2 class="form-signin-heading">Login Here</h2>
         <input type="text" class="form-control" name="email" placeholder="Email Address" required="" autofocus="" />
         <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
@@ -46,7 +47,7 @@ session_start();
          </div>
     </form>
 
-    <form class="form-signup" action="signup.php" method="post">
+    <form class="animated slideInDown form-signup" action="signup.php" method="post">
         <h5 class="form-signin-heading">Don't have account?</h5>
         <h2 class="form-signin-heading">Signup Here</h2>
         <input type="text" class="form-control" name="firstName" placeholder="First Name" required="" autofocus="" value="<?php if(isset($_SESSION['firstName'])) {echo $_SESSION['firstName'];}?>"/>

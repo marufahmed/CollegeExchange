@@ -12,6 +12,7 @@ if(!isset($_SESSION['username']))
 <head>
     <title>College Exchange</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -25,7 +26,7 @@ if(!isset($_SESSION['username']))
 
 
 <header>
-    <div class="center">
+    <div class="animated slideInDown center">
         <logo>
             <a href="index.php"><img src="logo.png"></a>
         </logo>
@@ -34,7 +35,7 @@ if(!isset($_SESSION['username']))
         <h5 id="account-title">Account: <?php echo $_SESSION['username'];?></h5>
 
     </div>
-    <nav>
+    <nav class="animated slideInRight">
         <ul>
             <li><a href="help.php">Help</a></li>
             <li><a href="signout.php">Sign Out</a></li>
@@ -46,7 +47,7 @@ if(!isset($_SESSION['username']))
 
 
 </header>
-<input type="text" id="searchStringMyproducts" onkeyup="searchMyproducts()" placeholder="Search for items">
+<input class="animated slideInDown" type="text" id="searchStringMyproducts" onkeyup="searchMyproducts()" placeholder="Search for items">
 <div>
     <?php
     echo "<table class='zui-table' id='myProducts'> ";
